@@ -9,7 +9,7 @@ import org.openqa.selenium.chrome.ChromeDriver;
 
 import io.github.bonigarcia.wdm.WebDriverManager;
 
-public class TC004_SRV_OBSVerifyDownloadFunctionality {
+public class TC006_SRV_OBSVerifyDownloadFunctionality {
 	
 	public static void main(String[] args) throws InterruptedException, AWTException {
 		// TODO Auto-generated method stub
