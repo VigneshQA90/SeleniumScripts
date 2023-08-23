@@ -40,7 +40,7 @@ public class InspecReqPrintOptions {
             WebElement Printbutton = wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//span[text()='Print W/ Attachment']")));
             Printbutton.click();
 
-            Thread.sleep(10000);
+            Thread.sleep(13000);
 
             // Switch to the new window
             String originalWindowHandle = driver.getWindowHandle();
@@ -51,14 +51,14 @@ public class InspecReqPrintOptions {
                 }
             }
 
-            Thread.sleep(6000);
+            Thread.sleep(9000);
 
             // Get the URL of the new window and verify it's not empty or null
             String newWindowUrl = driver.getCurrentUrl();
             if (newWindowUrl != null && !newWindowUrl.isEmpty()) {
                 System.out.println("New window URL: " + newWindowUrl);
 
-                Thread.sleep(5000);
+                Thread.sleep(8000);
 
                 Robot robot = new Robot();
 

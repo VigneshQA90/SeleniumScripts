@@ -23,23 +23,22 @@ public class TC005_SRV_InspectionRequestPrintFunctionality {
 		LoginPage login = new LoginPage(driver);
 		login.loginInertia("inertiaadmin", "devdb");
 		InspectionRequest ir = new InspectionRequest(driver);
-//		ir.openIRMainList();
-//		ir.CreateNewIR();
+	    ir.openIRMainList();
+		ir.CreateNewIR();
 		
 		UploadFilesForInspecReq upload = new UploadFilesForInspecReq(driver);
-	//	upload.uploadfiles();
-		upload.openFirstIRID();
+		upload.uploadfiles();
+									
+		
+	//	upload.openFirstIRID();
 		
 		InspecReqPrintOptions print = new InspecReqPrintOptions(driver);
 		print.clickIRPrintButtonAndDownloadPrintPDFFile();
 		
-//		InspecReqPDFReader reader = new InspecReqPDFReader(driver);				
+//		InspecReqPDFReader reader = new InspecReqPDFReader(driver);		
+		// reader.OpenPDFAndVerifyContent();
 		
-		
-//		reader.OpenPDFAndVerifyContent();
-		
-//		InspReqPDFReaderWithImgComparison compare = new InspReqPDFReaderWithImgComparison(driver);
-//		compare.OpenPDFAndVerifyContent();
+
 		
 		InspReqPDFReaderWithImgComparisonFORCLOSINGDOC close = new InspReqPDFReaderWithImgComparisonFORCLOSINGDOC(driver);
 		close.OpenPDFAndVerifyContent();

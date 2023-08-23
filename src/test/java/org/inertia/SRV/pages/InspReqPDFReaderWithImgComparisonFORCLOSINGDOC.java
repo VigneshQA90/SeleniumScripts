@@ -53,6 +53,7 @@ public class InspReqPDFReaderWithImgComparisonFORCLOSINGDOC {
                 PDDocument document = null;
                 try {
                     document = PDDocument.load(latestPDF);
+                    Thread.sleep(8000);
              //       Desktop.getDesktop().open(latestPDF);
                     verifyTextAndImagesInPDF(document, latestPDF);
                 } catch (IOException e) {
@@ -114,6 +115,7 @@ public class InspReqPDFReaderWithImgComparisonFORCLOSINGDOC {
    //     PDDocument document = null;
 
         try {
+        	Thread.sleep(5000);
        //     document = PDDocument.load(pdfFile);
             // Call getPDFImagesCount method
             int imageCount = getPDFImagesCount(document);
@@ -141,7 +143,9 @@ public class InspReqPDFReaderWithImgComparisonFORCLOSINGDOC {
             boolean containsCsv = pdfText.contains(firstLinkText1);
             boolean containsDocx = pdfText.contains(secondLinkText1);
             boolean containsIR = pdfText.contains("Inspection Request");
-            boolean containspdftext = pdfText.contains("Sharp IOR Daily Report - Grossmont");
+            boolean containspdftext1 = pdfText.contains("Sharp IOR Daily Report - Grossmont");
+            boolean containspdftext2 = pdfText.contains("Testing, Inspection, and Observation Program");
+            boolean containspdftext3 = pdfText.contains("ICDMAP For Testing");
 
             if (containsCsv) {
                 System.out.println("Text '" + firstLinkText1 + "'  found in the PDF.");
@@ -160,12 +164,26 @@ public class InspReqPDFReaderWithImgComparisonFORCLOSINGDOC {
             } else {
                 System.out.println("Text 'Inspection Request' not found in the PDF.");
             }
-            if (containspdftext) {
+            if (containspdftext1) {
                 System.out.println("Text 'Sharp IOR Daily Report - Grossmont' found in the PDF.");
             } else {
                 System.out.println("Text 'Sharp IOR Daily Report - Grossmont' not found in the PDF.");
             }
-
+            if (containspdftext2) {
+                System.out.println("Text 'Testing, Inspection, and Observation Program' found in attachment");
+            } else {
+                System.out.println("Text 'Testing, Inspection, and Observation Program' not found in attachment");
+            }
+     
+            // Get the number of pages in the PDF
+            int pageCount = document.getNumberOfPages();
+            System.out.println("Number of pages in the PDF: " + pageCount);
+            // Check if the number of pages is equal to 16 and print a message accordingly
+            if (pageCount == 16) {
+                System.out.println("All pages are displayed in Print attachment.");
+            } else {
+                System.err.println("16 pages are not displayed properly, please check the code.");
+            }
             // Verify images using SikuliX
 //            Screen screen = new Screen();
 //            ImagePath.add("C:/Users/Vigneshwaran/Desktop/SELENIUM UPLOAD/"); // Path to folder containing expected images
